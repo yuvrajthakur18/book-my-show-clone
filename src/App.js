@@ -1,4 +1,5 @@
 import './App.css';
+import axios from 'axios';
 
 // Routing 
 import { Routes, Route } from "react-router-dom";
@@ -11,6 +12,16 @@ import "slick-carousel/slick/slick-theme.css";
 import HomePage from './pages/Home.page';
 import MoviePage from './pages/Movie.page';
 import PlayPage from './pages/Play.page';
+
+// Some axios shortcuts or abbreviations that we will use for shortening the code.
+
+axios.defaults.baseURL = "https://api.themoviedb.org/3" ;  // starting url 
+axios.defaults.params = {};
+axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY; // url after ? mark 
+
+// We created a .env file and make this variable named REACT_APP_API_KEY there and 
+// stored our api key there so that when we push our code then our api key is not pushed 
+// on git and then it will be safe. Bcoz .env file is not pushed on github.
 
 function App() {
   return (

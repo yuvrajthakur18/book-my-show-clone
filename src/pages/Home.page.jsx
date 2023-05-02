@@ -15,14 +15,36 @@ const HomePage = () => {
   const [onlineStreamEvents , setOnlineStreamEvents] = useState([]);
 
   useEffect(() => {
+    const requestPopularMovies = async () => {
+        const getPopularMovies = await axios.get (
+            "/movie/popular"
+        );
+        setRecommendedMovies(getPopularMovies.data.results);
+    };
+
+    requestPopularMovies();
+  }, []);
+
+  useEffect(() => {
     const requestTopRatedMovies = async () => {
         const getTopRatedMovies = await axios.get (
-            "https://api.themoviedb.org/3/movie/top_rated?api_key=a908d06a3b8dd0b6c13656e4b2af8112"
+            "/movie/top_rated"
         );
-        setRecommendedMovies(getTopRatedMovies.data.results);
+        setPremierMovies(getTopRatedMovies.data.results);
     };
 
     requestTopRatedMovies();
+  }, []);
+
+  useEffect(() => {
+    const requestUpcomingMovies = async () => {
+        const getUpcomingMovies = await axios.get (
+            "/movie/upcoming"
+        );
+        setOnlineStreamEvents(getUpcomingMovies.data.results);
+    };
+
+    requestUpcomingMovies();
   }, []);
 
   return (
@@ -36,6 +58,14 @@ const HomePage = () => {
           <EntertainmentCardSlider />
       </div>
 
+      <div className='w-full flex justify-center'>
+        <img
+            src='https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png'
+            alt='book my show stream add poster'
+            className='w-11/12 h-auto cursor-pointer'
+        />
+      </div>
+
       <div className="container mx-auto px-4 md:px-12 my-8">
           <PosterSlider 
               title="Recommended Movies"
@@ -45,7 +75,7 @@ const HomePage = () => {
           />
       </div>
 
-      <div className='bg-premier-800 py-12'>
+      <div className='bg-premier-800 py-0.5 '>
           <div className="container mx-auto px-4 md:px-12 my-8 flex-col gap-3"> 
               <div className="hidden md:flex">
                   <img src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/premiere-rupay-banner-web-collection-202104230555.png" 

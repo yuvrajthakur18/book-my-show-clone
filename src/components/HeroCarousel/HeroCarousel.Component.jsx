@@ -163,8 +163,8 @@ const HeroCarousel = () => {
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
       autoplay: true,
-      speed: 1000,      // How fast transition happens
-      autoplaySpeed: 3000,    // How long slide stays on the screen before changing.
+      speed: 800,      // How fast transition happens
+      autoplaySpeed: 2000,    // How long slide stays on the screen before changing.
       cssEase: "linear",      // animation transition property -- as per my knowledge
     };
 
