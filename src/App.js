@@ -17,7 +17,8 @@ import PlayPage from './pages/Play.page';
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3" ;  // starting url 
 axios.defaults.params = {};
-axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY; // url after ? mark 
+axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY; 
+// url after ? mark 
 
 // We created a .env file and make this variable named REACT_APP_API_KEY there and 
 // stored our api key there so that when we push our code then our api key is not pushed 
