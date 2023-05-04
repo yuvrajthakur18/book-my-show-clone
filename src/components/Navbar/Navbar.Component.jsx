@@ -46,6 +46,11 @@ function NavMd() {
 }
 
 function NavLg() {
+
+  const openMenu = () => {
+    
+  }
+
   return (
     <>
     <div className='container flex mx-auto px-4 items-center justify-between'>
@@ -72,14 +77,14 @@ function NavLg() {
         <span className='text-gray-200 text-base flex items-center cursor-pointer hover:text-white'>
           Indore, MP <BiChevronDown />
         </span>
-        <Link to="/plays" className='text-gray-200 text-base flex items-center cursor-pointer hover:text-white'>
+        <Link to="/plays" className='bg-blue-100 text-blue-900 hover:bg-blue-200 px-2 py-1 rounded text-sm flex items-center cursor-pointer hover:text-white'>
           Plays
         </Link>
         <button className='bg-red-600 text-white px-2 py-1 text-sm rounded'>
           Sign In  
         </button>
         <div className='w-8 h-8 text-white'>
-          <BiMenu className='w-full h-full' />
+          <BiMenu className='w-full h-full cursor-pointer' onClick={openMenu}/>
         </div>
       </div>
     </div>

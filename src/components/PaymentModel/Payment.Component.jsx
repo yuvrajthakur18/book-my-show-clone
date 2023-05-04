@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 
 const PaymentModel = ({ setIsOpen, isOpen, price }) => {
+  
   const closeModal = () => {
     setIsOpen(false);
   };
